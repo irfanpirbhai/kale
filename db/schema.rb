@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416133731) do
+ActiveRecord::Schema.define(:version => 20130416153621) do
+
+  create_table "items", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "prices", :force => true do |t|
+    t.integer  "price_cents", :null => false
+    t.integer  "vendor_id",   :null => false
+    t.integer  "item_id",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "prices", ["item_id"], :name => "index_prices_on_item_id"
+  add_index "prices", ["vendor_id"], :name => "index_prices_on_vendor_id"
 
   create_table "vendors", :force => true do |t|
     t.string   "name",                     :null => false
