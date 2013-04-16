@@ -5,13 +5,13 @@ class VendorTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-  test "Vendor requires name on create" do
+  test "vendor requires name on create" do
     vendor = FactoryGirl.build(:vendor, :name => nil)
     assert_false vendor.save
     assert_equal "Name can't be blank", vendor.errors.full_messages.first
   end
 
-  test "Vendor saves" do
+  test "vendor saves" do
     vendor = FactoryGirl.build(:vendor)
     assert vendor.save
     assert_equal "Karma Coop", vendor.name
@@ -20,7 +20,7 @@ class VendorTest < ActiveSupport::TestCase
   end
 
 
-  test "Address is geocoded automatically" do
+  test "address is geocoded automatically" do
     vendor = FactoryGirl.create(:vendor)
     assert_not_nil vendor.latitude
     assert_not_nil vendor.longitude
