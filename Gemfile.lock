@@ -60,6 +60,7 @@ GEM
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
     formatador (0.2.4)
+    geocoder (1.1.6)
     guard (1.7.0)
       formatador (>= 0.2.4)
       listen (>= 0.6.0)
@@ -169,6 +170,7 @@ DEPENDENCIES
   capybara-webkit
   database_cleaner
   factory_girl_rails
+  geocoder
   guard-livereload
   guard-test
   jquery-rails
