@@ -1,8 +1,8 @@
 class Vendor < ActiveRecord::Base
   attr_accessible :name, :address, :latitude, :longitude, :phone
 
-  has_many :prices, :dependent => :destroy
-  has_many :items, :through => :prices
+  has_many :inventory_records, :dependent => :destroy
+  has_many :items, :through => :inventory_records
 
   validates :name, :presence => true
 

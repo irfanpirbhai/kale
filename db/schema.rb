@@ -11,15 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416153621) do
+ActiveRecord::Schema.define(:version => 20130416190835) do
 
-  create_table "items", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "prices", :force => true do |t|
+  create_table "inventory_records", :force => true do |t|
     t.integer  "price_cents", :null => false
     t.integer  "vendor_id",   :null => false
     t.integer  "item_id",     :null => false
@@ -27,8 +21,14 @@ ActiveRecord::Schema.define(:version => 20130416153621) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "prices", ["item_id"], :name => "index_prices_on_item_id"
-  add_index "prices", ["vendor_id"], :name => "index_prices_on_vendor_id"
+  add_index "inventory_records", ["item_id"], :name => "index_inventory_records_on_item_id"
+  add_index "inventory_records", ["vendor_id"], :name => "index_inventory_records_on_vendor_id"
+
+  create_table "items", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "vendors", :force => true do |t|
     t.string   "name",                     :null => false
