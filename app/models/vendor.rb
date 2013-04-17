@@ -1,4 +1,5 @@
 class Vendor < ActiveRecord::Base
+  
   attr_accessible :name, :address, :latitude, :longitude, :phone
 
   has_many :inventory_records, :dependent => :destroy

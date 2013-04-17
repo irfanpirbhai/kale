@@ -3,22 +3,47 @@ require 'test_helper'
 class ListFlowsTest < ActionDispatch::IntegrationTest
 
   setup do
-    item1 = Item.create!(name: "Kale (organic)")
-    item2 = Item.create!(name: "Rice Cakes (organic)")
-    item3 = Item.create!(name: "Pineapple Juice (organic)")
-    item4 = Item.create!(name: "Granny Smith Apples (organic)")
-    item5 = Item.create!(name: "Himalayan Sea Salt (organic)")
-    item6 = Item.create!(name: "Goat Yoghurt (organic)")
+
   end
 
-  test "new item is added to list from textfield" do
-    visit '/'
-    assert page.has_selector?("input")
+  test "logged in user can view their list" do
+    
+    password = "1234"
+    user = FactoryGirl.create(:user, :password => password)
+    
+    # create list with items, belonging to user
+
+    list = FactoryGirl.create(:list, :user => user)
+    # list.items.new
+    # populate the list
+
+    # log in user
+    # visit "/login"
+    # fill_in('email', :with => user.email)
+    # fill_in('password', :with => password)
+    # find('form').click_button('Log in')
+
+    
+    # user_login
+    # visit '/'
+    # assert page.has_content?(user.)
     # assert that cursor is in text field
     # fill_in('pledge_amount', :with => 50)
     # submit
     # assert page has content? "x"
   end
+
+
+
+  # test "logged in user can add new item list from textfield" do
+  #   user_login
+  #   visit '/'
+  #   assert page.has_selector?("input")
+    # assert that cursor is in text field
+    # fill_in('pledge_amount', :with => 50)
+    # submit
+    # assert page has content? "x"
+  # end
 
   test "existing item is added to list from textfield" do
   #   user_login
