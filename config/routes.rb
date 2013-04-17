@@ -2,6 +2,13 @@ Kale::Application.routes.draw do
 
   root :to => 'home#index'
 
+  match 'signup' => 'users#new', :as => 'signup'
+  match 'login' => "sessions#new", :as => 'login'
+  match 'logout' => "sessions#destroy", :as => 'logout'
+  
+  resources :users, :only => [:create]
+  resources :sessions, :only => [:create]
+
   resources :items, :only => [:new, :create, :index] do
     get :autocomplete_item_name, :on => :collection
   end

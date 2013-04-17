@@ -10,7 +10,7 @@ gem 'money-rails'
 gem 'geocoder'
 gem 'money-rails'
 gem 'rails3-jquery-autocomplete'
-
+gem 'sorcery'
 # Gems used only for assets and not required
 # in production environments by default.
 
