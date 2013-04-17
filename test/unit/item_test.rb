@@ -13,3 +13,4 @@ class ItemTest < ActiveSupport::TestCase
     assert_equal "Kale (Organic)", item.name
   end
 end
+ 

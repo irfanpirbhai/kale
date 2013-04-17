@@ -1,5 +1,4 @@
 <%= form_for @item do |f|%>
-
   <% if f.object.errors.any? %>
     <div class="alert alert-error">
       <strong>Woops! Try again after fixing the following things:</strong><br/>
@@ -10,7 +9,5 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.text_field :name %>
-  <%= f.submit "Enter" %>
+  <%= f.autocomplete_field :name, autocomplete_item_name_items_path %>
 <% end %>

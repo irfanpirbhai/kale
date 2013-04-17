@@ -2,7 +2,11 @@ Kale::Application.routes.draw do
 
   root :to => 'home#index'
 
-  resources :items, :only => [:new, :create, :index]
+  resources :items, :only => [:new, :create, :index] do
+    get :autocomplete_item_name, :on => :collection
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

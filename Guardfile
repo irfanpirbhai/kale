@@ -16,8 +16,12 @@ guard :test do
   watch('test/test_helper.rb')  { "test" }
 
   # Rails example
-  watch(%r{^app/models/(.+)\.rb$})                   { |m| "test/unit/#{m[1]}_test.rb" }
-  watch(%r{^app/controllers/(.+)\.rb$})              { |m| "test/functional/#{m[1]}_test.rb" }
-  watch(%r{^app/views/.+\.rb$})                      { "test/integration" }
-  watch('app/controllers/application_controller.rb') { ["test/functional", "test/integration"] }
+  # watch(%r{^app/models/(.+)\.rb$})                   { |m| "test/unit/#{m[1]}_test.rb" }
+  # watch(%r{^app/controllers/(.+)\.rb$})              { |m| "test/functional/#{m[1]}_test.rb" }
+  # watch('app/controllers/application_controller.rb') { ["test/functional", "test/integration"] }
+
+  watch(%r{^app/models/(.+)\.rb$})                   #{ "test/integration" }
+  watch(%r{^app/controllers/(.+)\.rb$})              #{ "test/integration" }
+  watch(%r{^app/views/.+})                      #{ "test/integration" }
+  watch('app/controllers/application_controller.rb') #{ ["test/functional", "test/integration"] }
 end

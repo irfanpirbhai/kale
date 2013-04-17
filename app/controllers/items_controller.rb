@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  autocomplete :item, :name, :full => true
+
   def index
     @items = Item.all
   end
@@ -13,10 +15,10 @@ class ItemsController < ApplicationController
     @item = Item.new(params[:item])
     if @item.save
       flash[:success] = "Added!"
-      redirect_to new_item_path
+      redirect_to :root
     else
       flash[:error] = "Woops!"
-      render :new
+      redirect_to :root
     end
   end
 
