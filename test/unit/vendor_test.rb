@@ -19,7 +19,6 @@ class VendorTest < ActiveSupport::TestCase
     assert_equal "(416) 534-1470", vendor.phone
   end
 
-
   test "address is geocoded automatically" do
     vendor = FactoryGirl.create(:vendor)
     assert_not_nil vendor.latitude
