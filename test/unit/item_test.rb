@@ -10,6 +10,6 @@ class ItemTest < ActiveSupport::TestCase
   test "item saves" do
     item = FactoryGirl.build(:item)
     assert item.save
-    assert_equal "kale (organic)", item.name
+    assert_equal "Kale (Organic)", item.name
   end
 end

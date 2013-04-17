@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :item do
-      name "kale (organic)"
+      name "Kale (Organic)"
   end
 
 end
