@@ -39,6 +39,7 @@ group :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "capybara-webkit"
+  gem 'rb-fsevent', :require => false
   gem "database_cleaner"
 end
 
