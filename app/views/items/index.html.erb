@@ -1,2 +1,6 @@
-index.html.erb
-
+<form name="add_items_to_list" action="/my/list/items" method="post">
+  <% @items.each do |item| %>
+    <input type="checkbox" name="item_ids[]" value="<%= item.id %>"><%= item.name %><br>
+  <% end %>
+  <input type="submit" value="Add to List">
+</form>

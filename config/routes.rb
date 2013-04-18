@@ -6,12 +6,18 @@ Kale::Application.routes.draw do
   match 'login' => "sessions#new", :as => 'login'
   match 'logout' => "sessions#destroy", :as => 'logout'
   
+  namespace :my do
+    resource :list do
+      resources :items, :only => [:create, :destroy, :update] 
+    end
+  end
+  
+
   resources :users, :only => [:create]
   resources :sessions, :only => [:create]
-
-  resources :items, :only => [:new, :create, :index] do
-    get :autocomplete_item_name, :on => :collection
-  end
+  resources :items, :only => [:create, :new, :index] #do
+    # get :autocomplete_item_name, :on => :collection
+  #end
 
 
   # The priority is based upon order of creation:

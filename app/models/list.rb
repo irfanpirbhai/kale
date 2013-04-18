@@ -1,6 +1,6 @@
 class List < ActiveRecord::Base
   
-  attr_accessible :user
+  attr_accessible :user, :item
 
   belongs_to :user
   has_and_belongs_to_many :items, :before_add => :validates_item
