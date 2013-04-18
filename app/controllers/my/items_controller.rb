@@ -1,7 +1,5 @@
 class My::ItemsController < ApplicationController
   
-  before_filter :require_login
-
   def index
     @items = Item.all
   end
@@ -25,16 +23,7 @@ class My::ItemsController < ApplicationController
 
   end
 
-  
-
   def new 
-  end
-
-  private
-
-  def not_authenticated
-    flash[:alert] = "Please log in."
-    redirect_to login_path
   end
 
 end

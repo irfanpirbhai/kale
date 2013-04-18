@@ -1,6 +1,6 @@
-<form name="add_items_to_list" action="/my/list/items" method="post">
+<%= form_tag(my_list_items_path, :method=>'post') do %>
   <% @items.each do |item| %>
-    <input type="checkbox" name="item_ids[]" value="<%= item.id %>"><%= item.name %><br>
+    <%= check_box_tag 'item_ids[]', item.id %> <%= item.name %><br>
   <% end %>
-  <input type="submit" value="Add to List">
-</form>
+  <%= submit_tag "Add to List" %>
+<% end %>
