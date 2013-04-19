@@ -32,7 +32,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
-  gem 'thin'
+  
 end
 
 group :test do 
