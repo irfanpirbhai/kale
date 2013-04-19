@@ -2,10 +2,6 @@ class My::ItemsController < ApplicationController
   
   before_filter :require_login
 
-  def index
-    @items = Item.all
-  end
-
   def create
     my_ids = params[:item_ids]
     my_ids = my_ids.map{|i| i.to_i}
@@ -25,7 +21,31 @@ class My::ItemsController < ApplicationController
 
   end
 
-  def new 
+  def update
+    @item = Item.find(params[:id])
+    @item_list = current_user.list.items.delete(@item)
+      
+    if @item_list
+        flash[:success] = "Item removed."
+        redirect_to '/my/list'
+    else
+        flash[:error] = "Woops! There was a problem."
+        redirect_to '/my/list'
+    end
+
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item_list = current_user.list.items.delete(@item)
+      
+    if @item_list
+        flash[:success] = "Item removed."
+        redirect_to '/my/list'
+    else
+        flash[:error] = "Woops! There was a problem."
+        redirect_to '/my/list'
+    end
   end
 
   private

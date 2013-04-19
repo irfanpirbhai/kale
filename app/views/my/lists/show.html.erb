@@ -1,4 +1,3 @@
-<%= render :partial => 'form' %>
 <%= link_to "Change Location", '#', :class => "btn btn-mini btn-primary" %>
 
 <h1>Current list:</h1>
@@ -9,7 +8,9 @@
       <span class="list_result">
         $<%= item.inventory_records.first(:order => "price_cents").price %>, 
         <%= item.inventory_records.first(:order => "price_cents").vendor.name %>
+        <%= button_to "Delete",  "/my/list/items/#{item.id}", :method =>"delete", :class => "btn btn-small" %>
       </span>
+        
     </li>
 
   <% end %>
