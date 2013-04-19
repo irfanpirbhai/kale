@@ -6,8 +6,11 @@
 <ul>
   <% @list.items.each do |item| %>
     <li><%= item.name %> - 
+      <span class="list_result">
         $<%= item.inventory_records.first(:order => "price_cents").price %>, 
         <%= item.inventory_records.first(:order => "price_cents").vendor.name %>
-        </li>
+      </span>
+    </li>
+
   <% end %>
 </ul>

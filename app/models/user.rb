@@ -11,4 +11,11 @@ class User < ActiveRecord::Base
   validates :first_name, :presence => 'true'
   validates :last_name, :presence => 'true'
 
+  after_create :create_associated_list
+
+  private 
+    def create_associated_list
+      self.list = List.create
+    end
+
 end
