@@ -1,6 +1,6 @@
 class DeleteVendorPrices < ActiveRecord::Migration
   def up
-    drop_table :vendorprices
+    drop_table :prices
   end
 
   def down
