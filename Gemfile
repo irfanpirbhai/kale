@@ -11,6 +11,7 @@ gem 'geocoder'
 gem 'money-rails'
 gem 'rails3-jquery-autocomplete'
 gem 'sorcery'
+gem 'thin'
 # Gems used only for assets and not required
 # in production environments by default.
 
@@ -32,7 +33,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
-  
 end
 
 group :test do 
