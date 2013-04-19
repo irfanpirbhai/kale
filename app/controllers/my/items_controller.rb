@@ -17,7 +17,7 @@ class My::ItemsController < ApplicationController
         flash[:success] = "Added!"
         redirect_to '/my/list'
     else
-      flash[:error] = "Woops!"
+      flash[:error] = "Woops! Some items already exist."
       redirect_to '/items'
     end
 

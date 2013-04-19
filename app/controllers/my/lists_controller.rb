@@ -8,6 +8,8 @@ class My::ListsController < ApplicationController
     @user = current_user
     @list = @user.list
     @items = Item.all
+    @current_location = request.location
+    @client_ip = request.ip
   end
 
   def new

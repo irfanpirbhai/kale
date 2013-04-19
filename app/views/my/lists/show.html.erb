@@ -6,7 +6,8 @@
 <ul>
   <% @list.items.each do |item| %>
     <li><%= item.name %> - 
-        $<%= Item.find(item.id).inventory_records.first(:order => "price_cents").price %>, 
-        <%= Item.find(item.id).inventory_records.first(:order => "price_cents").vendor.name %></li>
+        $<%= item.inventory_records.first(:order => "price_cents").price %>, 
+        <%= item.inventory_records.first(:order => "price_cents").vendor.name %>
+    </li>
   <% end %>
 </ul>
