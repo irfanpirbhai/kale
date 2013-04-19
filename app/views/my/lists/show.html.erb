@@ -8,6 +8,6 @@
     <li><%= item.name %> - 
         $<%= item.inventory_records.first(:order => "price_cents").price %>, 
         <%= item.inventory_records.first(:order => "price_cents").vendor.name %>
-    </li>
+        </li>
   <% end %>
 </ul>

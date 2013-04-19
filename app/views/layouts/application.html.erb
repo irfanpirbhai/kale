@@ -9,9 +9,11 @@
 </head>
 <body>
   <div class="container">
-    <%= render partial: "layouts/shared/navigation" %>
-    <%= render partial: "layouts/shared/flash_messages", flash: flash %> 
-    <%= yield %>
+      <%= render partial: "layouts/shared/navigation" %>
+      <div class="page_content">
+      <%= render partial: "layouts/shared/flash_messages", flash: flash %> 
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>

@@ -1,6 +1,15 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+body { background-image: url('kale.jpg') }
+
+.page_content {
+
+  background: white;
+  padding: 10px;
+  opacity: 0.9;
+}
+
 .muted {
 padding-right: 5px;
 }

@@ -1,5 +1,7 @@
 class My::ItemsController < ApplicationController
   
+  before_filter :require_login
+
   def index
     @items = Item.all
   end
@@ -14,8 +16,8 @@ class My::ItemsController < ApplicationController
     end
 
     if @item_list
-        flash[:success] = "Added!"
-        redirect_to '/my/list'
+      flash[:success] = "Added!"
+      redirect_to '/my/list'
     else
       flash[:error] = "Woops! Some items already exist."
       redirect_to '/items'
@@ -24,6 +26,13 @@ class My::ItemsController < ApplicationController
   end
 
   def new 
+  end
+
+  private
+
+  def not_authenticated
+    flash[:alert] = "Please log in."
+    redirect_to login_path
   end
 
 end

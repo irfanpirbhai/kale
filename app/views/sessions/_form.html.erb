@@ -1,7 +1,7 @@
 <%= form_tag sessions_path do %>
 
   Email:<br>
-  <%= email_field_tag :email, params[:email] %><br>
+  <%= email_field_tag :email, params[:email], :placeholder => "Email address" %><br>
   
   Password:<br>
   <%= password_field_tag :password %><br>
