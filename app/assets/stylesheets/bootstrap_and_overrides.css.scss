@@ -1,45 +1,79 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
+@import "font-awesome";
 
-body { background-image: url('kale.jpg') }
+body { 
+  background-image: url('kale.jpg');
+}
 
 .page_content {
-
   background: white;
   padding: 10px;
   opacity: 0.9;
 }
 
+.list_all {
+  list-style-type: none;
+}
+
+a.list-icon {
+  text-decoration: none;
+}
+
+i {
+  color: grey;
+}
+
+.showprices:hover {
+  color: black;
+}
+
+.hideprices:hover {
+  color: black;
+}
+
+.icon-remove-sign:hover {
+  color: red;
+}
+
 .list_result {
-  
   font-weight: bold;
   font-style: italic;
   color: #468847;
+  list-style-type: none;
+  display: inline;
+  padding-right: 5px;
+}
+
+.list_result:hover
+{
+color: #fff;
+background-color: #369;
 }
 
 .muted {
 padding-right: 5px;
 }
 
-ul.ui-autocomplete {
-  position: absolute;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border: solid 1px #999;
-  cursor: default;
-  li {
-    background-color: #FFF;
-    border-top: solid 1px #DDD;
-    margin: 0;
-    padding: 0;
-    a {
-      color: #000;
-      display: block;
-      padding: 3px;
-    }
-    a.ui-state-hover, a.ui-state-active {
-      background-color: #FFFCB2;
-    }
-  }
-} 
+// ul.ui-autocomplete {
+//   position: absolute;
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   border: solid 1px #999;
+//   cursor: default;
+//   li {
+//     background-color: #FFF;
+//     border-top: solid 1px #DDD;
+//     margin: 0;
+//     padding: 0;
+//     a {
+//       color: #000;
+//       display: block;
+//       padding: 3px;
+//     }
+//     a.ui-state-hover, a.ui-state-active {
+//       background-color: #FFFCB2;
+//     }
+//   }
+// } 

@@ -12,6 +12,32 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
-//= require autocomplete-rails
 //= require_tree .
+
+$(document).ready(function(){
+
+$(".hideprices").hide();
+$("li.list_result:not(:first-child)").hide();
+
+$(".showprices").click(function(e){
+  e.preventDefault();
+  $(this).parent().parent().find("ul li.list_result").show();
+  $(this).hide()
+  $(this).parent().parent().find(".hideprices").show()
+});
+
+$(".hideprices").click(function(e){
+  e.preventDefault();
+  $("li.list_result:not(:first-child)").hide();
+  $(".hideprices").hide()
+  $(".showprices").show()
+});
+
+
+$("li.list_result").on("click", function(){
+  $(this).siblings().hide();
+  $(".hideprices").hide()
+  $(".showprices").show()
+});
+
+})

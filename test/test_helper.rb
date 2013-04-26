@@ -10,6 +10,11 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  teardown do 
+    DatabaseCleaner.clean
+  end
+
 end
 
 DatabaseCleaner.strategy = :truncation
@@ -19,6 +24,7 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   Capybara.app = Kale::Application
+  Capybara.javascript_driver = :webkit
   
   self.use_transactional_fixtures = false 
   
@@ -31,8 +37,7 @@ end
 
 def user_signup
   visit "/"
-  find("div.navbar").click_link('Sign up')
-  
+  find("div.nav").click_link('Sign up')
   user = FactoryGirl.build(:user) 
   fill_in('First name', :with => user.first_name)
   fill_in('Last name', :with => user.last_name)

@@ -4,14 +4,30 @@
 
 <ul>
   <% @list.items.each do |item| %>
-    <li><%= item.name %> - 
-      <span class="list_result">
-        $<%= item.inventory_records.first(:order => "price_cents").price %>, 
-        <%= item.inventory_records.first(:order => "price_cents").vendor.name %>
-        <%= button_to "Delete",  "/my/list/items/#{item.id}", :method =>"delete", :class => "btn btn-small" %>
-      </span>
+    <li class="list_all">
+      <a href="#" class="list-icon">
+        <i class="icon-plus-sign showprices"></i>
+      </a>
         
-    </li>
+      <a href="#" class="list-icon">
+        <i class="icon-minus-sign hideprices"></i>
+      </a>      
+      <%= item.name %>
 
+      <%= link_to "/my/list/items/#{item.id}", :confirm => 'Are you sure?', :method => :delete, :class => "list-icon" do %>
+        <i class="icon-remove-sign"></i>
+      <% end %>
+      
+      <ul>
+        <% item.inventory_records.order("price_cents asc").each do |inventory_record| %>
+          <li class="list_result">
+            $<%= inventory_record.price %> -  
+            <%= inventory_record.vendor.name %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
   <% end %>
 </ul>
+
+

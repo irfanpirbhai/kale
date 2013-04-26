@@ -20,6 +20,7 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'uglifier', '>= 1.0.3'
   gem 'coffee-rails'
+  gem "font-awesome-rails"
 end
 
 gem 'jquery-rails'
@@ -39,7 +40,7 @@ group :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "capybara-webkit"
-  gem 'rb-fsevent', :require => false
+  gem "rb-fsevent", :require => false
   gem "database_cleaner"
 end
 
