@@ -16,28 +16,29 @@
 
 $(document).ready(function(){
 
-$(".hideprices").hide();
-$("li.list_result:not(:first-child)").hide();
+$("i.hideprices").hide();
+$("li.list_result:not(.selected)").hide();
 
-$(".showprices").click(function(e){
+var hidePrices = function(e) {
+  $("li.list_result:not(.selected)").hide();
+  $(this).parent().parent().find("i.hideprices, i.showprices").toggle()
   e.preventDefault();
+}
+
+var showPrices = function(e) {
   $(this).parent().parent().find("ul li.list_result").show();
-  $(this).hide()
-  $(this).parent().parent().find(".hideprices").show()
-});
-
-$(".hideprices").click(function(e){
+  $(this).parent().parent().find("i.hideprices, i.showprices").toggle()
   e.preventDefault();
-  $("li.list_result:not(:first-child)").hide();
-  $(".hideprices").hide()
-  $(".showprices").show()
-});
+}
+
+$("i.showprices").click(showPrices);
+$("i.hideprices").click(hidePrices);
 
 
 $("li.list_result").on("click", function(){
-  $(this).siblings().hide();
-  $(".hideprices").hide()
-  $(".showprices").show()
+  $(this).siblings().removeClass("selected");
+  $(this).addClass("selected");
+  hidePrices();
 });
 
 })

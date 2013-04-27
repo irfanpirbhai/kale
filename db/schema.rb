@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417181717) do
+ActiveRecord::Schema.define(:version => 20130426191722) do
 
   create_table "inventory_records", :force => true do |t|
     t.integer  "price_cents", :null => false
@@ -30,10 +30,17 @@ ActiveRecord::Schema.define(:version => 20130417181717) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "items_lists", :id => false, :force => true do |t|
-    t.integer "item_id"
-    t.integer "list_id"
+  create_table "list_items", :force => true do |t|
+    t.integer  "list_id"
+    t.integer  "item_id"
+    t.integer  "inventory_record_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
+
+  add_index "list_items", ["inventory_record_id"], :name => "index_list_items_on_inventory_record_id"
+  add_index "list_items", ["item_id"], :name => "index_list_items_on_item_id"
+  add_index "list_items", ["list_id"], :name => "index_list_items_on_list_id"
 
   create_table "lists", :force => true do |t|
     t.integer  "user_id",    :null => false

@@ -4,7 +4,7 @@
   <%= email_field_tag :email, params[:email], :placeholder => "Email address" %><br>
   
   Password:<br>
-  <%= password_field_tag :password %><br>
+  <%= password_field_tag :password, nil, :placeholder => "Password" %><br>
 
   <%= submit_tag "Log in" %>
 <% end %>

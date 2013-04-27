@@ -3,7 +3,7 @@
 <h1>Current list:</h1>
 
 <ul>
-  <% @list.items.each do |item| %>
+  <% @list.list_items.each do |list_item| %>
     <li class="list_all">
       <a href="#" class="list-icon">
         <i class="icon-plus-sign showprices"></i>
@@ -12,22 +12,22 @@
       <a href="#" class="list-icon">
         <i class="icon-minus-sign hideprices"></i>
       </a>      
-      <%= item.name %>
+      <%= list_item.item.name %>
 
-      <%= link_to "/my/list/items/#{item.id}", :confirm => 'Are you sure?', :method => :delete, :class => "list-icon" do %>
+      <%= link_to "/my/list/list_items/#{list_item.id}", :confirm => 'Are you sure?', :method => :delete, :class => "list-icon" do %>
         <i class="icon-remove-sign"></i>
       <% end %>
-      
-      <ul>
-        <% item.inventory_records.order("price_cents asc").each do |inventory_record| %>
-          <li class="list_result">
+
+     <ul>
+        <% list_item.item.inventory_records.order("price_cents asc").each_with_index do |inventory_record, i| %>
+          <li class="list_result <%= "selected" if i == 0 %>" >        
             $<%= inventory_record.price %> -  
             <%= inventory_record.vendor.name %>
+
           </li>
         <% end %>
       </ul>
+
     </li>
   <% end %>
 </ul>
-
-

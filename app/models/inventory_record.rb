@@ -4,6 +4,7 @@ class InventoryRecord < ActiveRecord::Base
 
   belongs_to :vendor
   belongs_to :item
+  has_many :list_items
   
   monetize :price_cents, :allow_nil => false, :numericality => { :greater_than_or_equal_to => 0}
 end

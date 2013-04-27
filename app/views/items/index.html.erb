@@ -1,4 +1,4 @@
-<%= form_tag(my_list_items_path, :method=>'post') do %>
+<%= form_tag(my_list_list_items_path, :method=>'post') do %>
   <% @items.each do |item| %>
     <%= check_box_tag 'item_ids[]', item.id %> <%= item.name %><br>
   <% end %><br>
