@@ -21,9 +21,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'coffee-rails'
   gem "font-awesome-rails"
+  gem 'jquery-rails'
 end
-
-gem 'jquery-rails'
 
 group :tools do
   gem 'rb-fsevent', :require => false 
