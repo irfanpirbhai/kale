@@ -20,25 +20,36 @@ $("i.hideprices").hide();
 $("li.list_result:not(.selected)").hide();
 
 var hidePrices = function(e) {
-  $("li.list_result:not(.selected)").hide();
-  $(this).parent().parent().find("i.hideprices, i.showprices").toggle()
   e.preventDefault();
+  $(this).parent().parent().find("li.list_result:not(.selected)").hide();
+  $(this).parent().parent().find("i.hideprices, i.showprices").toggle();
 }
 
 var showPrices = function(e) {
-  $(this).parent().parent().find("ul li.list_result").show();
-  $(this).parent().parent().find("i.hideprices, i.showprices").toggle()
   e.preventDefault();
+  $(this).parent().parent().find("ul li.list_result").show();
+  $(this).parent().parent().find("i.hideprices, i.showprices").toggle();
 }
 
 $("i.showprices").click(showPrices);
 $("i.hideprices").click(hidePrices);
 
 
-$("li.list_result").on("click", function(){
-  $(this).siblings().removeClass("selected");
-  $(this).addClass("selected");
-  hidePrices();
+$("li.list_result").click(function(e){
+  e.preventDefault();
+  $(this).parent().parent().find("i.hideprices, i.showprices").toggle();
+  
+  if ($(this).siblings().filter(":hidden").length > 0) {
+    // show all inventory_records
+    $(this).parent().parent().find("ul li.list_result").show();     
+  }
+    else {
+    // hide unselected inventory_records
+    $(this).siblings().removeClass("selected");
+    $(this).addClass("selected");
+    $(this).parent().find("li.list_result:not(.selected)").hide();
+  };
+
 });
 
 })
