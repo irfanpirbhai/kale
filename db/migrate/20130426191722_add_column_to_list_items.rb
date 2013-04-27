@@ -2,7 +2,7 @@ class AddColumnToListItems < ActiveRecord::Migration
   def change
     create_table :list_items do |t|
       t.references :list
-      t.references :item_id
+      t.references :item
       t.references :inventory_record
       t.timestamps
     end
