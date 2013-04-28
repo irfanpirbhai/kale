@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class VendorTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
   test "vendor requires name on create" do
     vendor = FactoryGirl.build(:vendor, :name => nil)
@@ -11,7 +8,7 @@ class VendorTest < ActiveSupport::TestCase
     assert_equal "Name can't be blank", vendor.errors.full_messages.first
   end
 
-  test "vendor saves" do
+  test "vendor is successfully created" do
     vendor = FactoryGirl.build(:vendor)
     assert vendor.save
     assert_equal "Karma Coop", vendor.name
