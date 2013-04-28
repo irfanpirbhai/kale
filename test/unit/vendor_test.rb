@@ -24,6 +24,14 @@ class VendorTest < ActiveSupport::TestCase
     assert_not_nil vendor.latitude
     assert_not_nil vendor.longitude
   end
+
+  test "there cannot be multiples of the same address" do
+    vendor = FactoryGirl.create(:vendor)
+    assert vendor.save
+    vendor2 = FactoryGirl.build(:vendor)
+    assert_false vendor2.save
+    assert_equal "Address has already been taken", vendor2.errors.full_messages.first
+  end
   
 end
  

@@ -6,6 +6,7 @@ class Vendor < ActiveRecord::Base
   has_many :items, :through => :inventory_records
 
   validates :name, :presence => true
+  validates :address, :presence => true, :uniqueness => true
 
   geocoded_by :address
   after_validation :geocode  

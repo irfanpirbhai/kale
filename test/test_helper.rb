@@ -55,3 +55,15 @@ def user_login
   fill_in('password', :with => password)
   find('form').click_button('Log in')
 end
+
+def list_item_setup
+    password = "1234"
+    @user = FactoryGirl.build(:user, :password => password)
+    assert @user.save
+    assert @user.list.valid?
+
+    @inventory_record = FactoryGirl.build(:inventory_record)
+    assert @inventory_record.save
+
+    @item = @inventory_record.item
+end
