@@ -15,11 +15,10 @@ class ListItemTest < ActiveSupport::TestCase
     assert_equal "Item can't be blank", list_item.errors.full_messages.first
   end
 
-  test "list_item needs an inventory_record" do
+  test "list_item inventory_record can be nil" do
     list_item_setup
     list_item = FactoryGirl.build(:list_item, :list => @user.list, :item => @item, :inventory_record => nil)
-    assert_false list_item.save
-    assert_equal "Inventory record can't be blank", list_item.errors.full_messages.first
+    assert list_item.save
   end
 
   test "list_item needs a list" do
@@ -39,6 +38,3 @@ class ListItemTest < ActiveSupport::TestCase
   end
 
 end
-
-
- 
