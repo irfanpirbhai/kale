@@ -3,10 +3,10 @@ kale.jpg: kale-7cb6a3469fe67d28413f2b23d844444f.jpg
 kale/index.jpg: kale-7cb6a3469fe67d28413f2b23d844444f.jpg
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-bdb171eb7cf10ac9123c95c02aed7602.js
-application/index.js: application-bdb171eb7cf10ac9123c95c02aed7602.js
-application.css: application-39ce127d8060c64d1203996926756fa4.css
-application/index.css: application-39ce127d8060c64d1203996926756fa4.css
+application.js: application-b8ae8ca291dd8900f43bc6a07cff3707.js
+application/index.js: application-b8ae8ca291dd8900f43bc6a07cff3707.js
+application.css: application-b9d18399454b10386bf0bf0ddb488505.css
+application/index.css: application-b9d18399454b10386bf0bf0ddb488505.css
 jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
 jquery/index.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
 FontAwesome.otf: FontAwesome-468f83b63df32064983141584a19ff17.otf
