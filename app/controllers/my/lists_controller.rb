@@ -9,7 +9,7 @@ class My::ListsController < ApplicationController
     @list = @user.list
     @items = Item.all
     
-    @current_location = request.location.city
+    @current_location = request.location
     @user_ip = request.ip
   end
 

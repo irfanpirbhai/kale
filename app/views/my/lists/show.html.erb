@@ -44,8 +44,15 @@
   </div>
 
   <div class="span6">
-    <%= link_to "Change Location", '#', :class => "btn btn-mini btn-primary" %>
-    <%= @current_location %>
-    <%= @user_ip %>
+    <p>
+      <%= link_to "Change Location", '#', :class => "btn btn-mini btn-primary" %><br>
+      <%= @current_location %><br>
+      <%= @current_location.address %><br>
+      <%= @current_location.city %><br>
+      <%= @user_ip %><br>
+    </p>
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@current_location.latitude}%2C#{@current_location.longitude}" %>
+
+
   </div>
 </div>
