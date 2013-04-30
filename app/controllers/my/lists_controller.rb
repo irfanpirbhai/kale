@@ -16,20 +16,31 @@ class My::ListsController < ApplicationController
   def new
   end
 
-  def update
+  def update_many
     @user = current_user
     @list = @user.list
     @items = Item.all
+    update_value = params[:update_value]
 
-    # update_to_nil = @list.list_items.update_all(:inventory_record_id => nil)
+    if (update_value == "forget")
+      update_list_items = @list.list_items.update_all(:inventory_record_id => nil)
+    elsif (update_value == "cheapest")
+      @list.list_items.each do |list_item|
+        list_item.inventory_record_id = list_item.item.inventory_records.order("price_cents asc").first.id
+        list_item.save
+      end
+    end
 
-    # if update_to_nil
+    redirect_to '/my/list'
+
+    # if update_list_items
     #   flash[:success] = "Items updated."
     #   redirect_to '/my/list'
     # else
     #   flash[:error] = "Woops! There was a problem."
     #   redirect_to '/my/list'
     # end
+
   end
 
   private

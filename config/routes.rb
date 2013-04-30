@@ -8,9 +8,8 @@ Kale::Application.routes.draw do
   
   namespace :my do
     resource :list do
-      resources :list_items, :only => [:create, :destroy, :update] do
-        put :update_many
-      end
+      resources :list_items, :only => [:create, :destroy, :update]
+      put :update_many
     end
   end
   

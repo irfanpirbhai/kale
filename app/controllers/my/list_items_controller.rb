@@ -41,25 +41,6 @@ class My::ListItemsController < ApplicationController
     end
   end
 
-  def update_many
-    @user = current_user
-    @list = @user.list
-    @items = Item.all
-    # "list_item"=>{"inventory_record_id"=>"27"}, "list_item_id"=>"1"}
-
-    value = params[:list_item][:inventory_record_id]
-    update_list_items = @list.list_items.update_all(:inventory_record_id => value)
-
-    if update_list_items
-      flash[:success] = "Items updated."
-      redirect_to '/my/list'
-    else
-      flash[:error] = "Woops! There was a problem."
-      redirect_to '/my/list'
-    end
-
-  end
-
   def destroy
     @list_item = ListItem.find(params[:id])
       

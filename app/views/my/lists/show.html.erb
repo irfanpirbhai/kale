@@ -1,46 +1,49 @@
-<%= link_to "Change Location", '#', :class => "btn btn-mini btn-primary" %>
+<div class="row-fluid">
 
-<h1>Current list:</h1>
-<p>
-  <%= link_to "Select cheapest", "#" %> | 
-  <%= link_to "Select closest", "#" %> | 
-  <%= link_to "Forget my selections", my_list_list_item_update_many_path(@list, :list_item => { :inventory_record_id => 0 }), :method => :put %>    
-</p>
+  <div class="span6">
+    <h1>Current list:</h1>
+    <p>
+      <%= link_to "Select cheapest", update_many_my_list_path(:update_value => "cheapest"), :method => :put %>  | 
+      <%= link_to "Select closest", "#" %> | 
+      <%= link_to "Forget my selections", update_many_my_list_path(:update_value => "forget"), :method => :put %>    
+    </p>
 
-<ul>
-  <% @list.list_items.order("created_at asc").each do |list_item| %>
-    <li class="list_all">
-      <a href="#" class="list-icon">
-        <i class="icon-plus-sign showprices"></i>
-      </a>
-        
-      <a href="#" class="list-icon">
-        <i class="icon-minus-sign hideprices"></i>
-      </a>      
-      <%= list_item.item.name %>
+    <ul>
+      <% @list.list_items.order("created_at asc").each do |list_item| %>
+        <li class="list_all">
+          <a href="#" class="list-icon">
+            <i class="icon-plus-sign showprices"></i>
+          </a>
+            
+          <a href="#" class="list-icon">
+            <i class="icon-minus-sign hideprices"></i>
+          </a>      
+          <%= list_item.item.name %>
 
-      <%= link_to "/my/list/list_items/#{list_item.id}", :confirm => 'Are you sure?', :method => :delete, :class => "list-icon" do %>
-        <i class="icon-remove-sign"></i>
-      <% end %>
+          <%= link_to "/my/list/list_items/#{list_item.id}", :confirm => 'Are you sure?', :method => :delete, :class => "list-icon" do %>
+            <i class="icon-remove-sign"></i>
+          <% end %>
 
-     <ul>
-        <% list_item.item.inventory_records.order("price_cents asc").each_with_index do |inventory_record, i| %>
-          <li class="list_result
-            <%=if list_item.inventory_record_id.nil?
-                "selected" if i == 0
-              else
-                "selected label" if (inventory_record.id == list_item.inventory_record_id)
-              end %>" >
-            <%= link_to my_list_list_item_path(list_item, 
-                :list_item => { :inventory_record_id => inventory_record.id }), :method => :put, :remote => true do %>
-              $<%= inventory_record.price %> -  
-              <%= inventory_record.vendor.name %>
+         <ul>
+            <% list_item.item.inventory_records.order("price_cents asc").each_with_index do |inventory_record, i| %>
+              <li class="list_result
+                <%="selected label" if (inventory_record.id == list_item.inventory_record_id)%>" >
+                <%= link_to my_list_list_item_path(list_item, 
+                    :list_item => { :inventory_record_id => inventory_record.id }), :method => :put, :remote => true do %>
+                  $<%= inventory_record.price %> -  
+                  <%= inventory_record.vendor.name %>
+                <% end %>
+              </li>
+
             <% end %>
-          </li>
+          </ul>
 
-        <% end %>
-      </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-    </li>
-  <% end %>
-</ul>
+  <div class="span6">
+    <%= link_to "Change Location", '#', :class => "btn btn-mini btn-primary" %>
+  </div>
+</div>
