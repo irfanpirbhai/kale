@@ -39,20 +39,22 @@ i {
 .list_result {
   font-weight: bold;
   font-style: italic;
-  color: #468847;
+  text-color: black;
   list-style-type: none;
   display: inline;
   padding-right: 5px;
 }
 
-.list_result:hover
-{
-color: #fff;
-background-color: #369;
+.list_result a {
+  color: black;
+}
+
+.list_result a:hover {
+  text-decoration: none;
 }
 
 .muted {
-padding-right: 5px;
+  padding-right: 5px;
 }
 
 // ul.ui-autocomplete {

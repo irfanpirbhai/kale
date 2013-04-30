@@ -29,24 +29,23 @@ class My::ListItemsController < ApplicationController
   end
 
   def update
-    # @item = Item.find(params[:id])
-    # @item_list = current_user.list.items.delete(@item)
-      
-    # if @item_list
+    @list_item = ListItem.find(params[:id])
+    @list_item.inventory_record_id = (params[:list_item][:inventory_record_id])
+    @list_item.save
+    # if @list_item.save
     #     flash[:success] = "Item updated."
     #     redirect_to '/my/list'
     # else
     #     flash[:error] = "Woops! There was a problem."
     #     redirect_to '/my/list'
     # end
-
   end
 
   def destroy
     @list_item = ListItem.find(params[:id])
       
     if @list_item.delete
-        flash[:success] = "Item removed."
+        flash[:alert] = "Item removed."
         redirect_to '/my/list'
     else
         flash[:error] = "Woops! There was a problem."

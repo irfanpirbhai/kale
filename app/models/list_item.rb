@@ -9,5 +9,4 @@ class ListItem < ActiveRecord::Base
   validates :list_id, :item_id, :presence => 'true'
   validates :item_id, :uniqueness => { :scope => :list_id, :message => "should be on list only once" }
 
-  
 end
