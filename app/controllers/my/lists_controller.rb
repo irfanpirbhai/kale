@@ -17,14 +17,20 @@ class My::ListsController < ApplicationController
   end
 
   def update
-    # @list = List.items.new(params[:item])
-    # if @list.save
-    #   flash[:success] = "Added!"
-    #   redirect_to :index
+    @user = current_user
+    @list = @user.list
+    @items = Item.all
+
+    # update_to_nil = @list.list_items.update_all(:inventory_record_id => nil)
+
+    # if update_to_nil
+    #   flash[:success] = "Items updated."
+    #   redirect_to '/my/list'
     # else
-    #   flash[:error] = "Woops!"
-    #   redirect_to :index
-    end
+    #   flash[:error] = "Woops! There was a problem."
+    #   redirect_to '/my/list'
+    # end
+  end
 
   private
 

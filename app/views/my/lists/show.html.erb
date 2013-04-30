@@ -1,6 +1,11 @@
 <%= link_to "Change Location", '#', :class => "btn btn-mini btn-primary" %>
 
 <h1>Current list:</h1>
+<p>
+  <%= link_to "Select cheapest", "#" %> | 
+  <%= link_to "Select closest", "#" %> | 
+  <%= link_to "Forget my selections", my_list_list_item_update_many_path(@list, :list_item => { :inventory_record_id => 0 }), :method => :put %>    
+</p>
 
 <ul>
   <% @list.list_items.order("created_at asc").each do |list_item| %>
@@ -22,7 +27,7 @@
         <% list_item.item.inventory_records.order("price_cents asc").each_with_index do |inventory_record, i| %>
           <li class="list_result
             <%=if list_item.inventory_record_id.nil?
-                "selected label" if i == 0
+                "selected" if i == 0
               else
                 "selected label" if (inventory_record.id == list_item.inventory_record_id)
               end %>" >
