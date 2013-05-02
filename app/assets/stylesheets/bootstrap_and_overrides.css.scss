@@ -2,8 +2,13 @@
 @import "bootstrap-responsive";
 @import "font-awesome";
 
-body { 
+body {
   background-image: url('kale.jpg');
+}
+
+#map-canvas {
+  width: 500px;
+  height: 500px;
 }
 
 .page_content {

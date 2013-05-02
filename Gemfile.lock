@@ -73,6 +73,7 @@ GEM
       railties (>= 3.1)
     formatador (0.2.4)
     geocoder (1.1.6)
+    gmaps4rails (1.5.6)
     guard (1.7.0)
       formatador (>= 0.2.4)
       listen (>= 0.6.0)
@@ -202,6 +203,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   geocoder
+  gmaps4rails
   guard-livereload
   guard-test
   jquery-rails

@@ -59,4 +59,7 @@ $(document).ready(function(){
       });
   }, 1000);
 
+  //Initialize Google Maps
+  initializeMap();
+
 })
