@@ -13,7 +13,7 @@ Kale::Application.routes.draw do
     end
   end
   
-
+  resources :vendors, :only => [:index]
   resources :users, :only => [:create]
   resources :sessions, :only => [:create]
   resources :items, :only => [:create, :new, :index] #do

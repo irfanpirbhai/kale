@@ -1,0 +1,12 @@
+<h2>Current Location: <%= @current_location %></h2>
+
+<h3>Nearby vendors:</h3>
+<ul>
+  <% @vendors.each do |vendor| %>
+    <li>
+      <%= vendor.name %>  |  
+      <%= vendor.address %>  | 
+      <%= vendor.distance_from([43.6667, -79.4167]).round(1) %> km away
+    </li>
+  <% end %>
+</ul>
