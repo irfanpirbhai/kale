@@ -62,4 +62,10 @@ $(document).ready(function(){
   //Initialize Google Maps
   initializeMap();
 
+  var pathname = window.location.pathname;
+
+  $.getJSON(window.location.pathname, function(data) {
+    console.log(data);
+  });
+
 })

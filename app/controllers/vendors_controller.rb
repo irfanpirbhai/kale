@@ -9,6 +9,12 @@ class VendorsController < ApplicationController
     else
       @vendors = Vendor.all
     end
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @vendors }
+    end
+
   end
 
 end
