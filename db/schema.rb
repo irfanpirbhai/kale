@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426191722) do
+ActiveRecord::Schema.define(:version => 20130505172944) do
 
   create_table "inventory_records", :force => true do |t|
     t.integer  "price_cents", :null => false
