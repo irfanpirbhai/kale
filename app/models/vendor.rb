@@ -9,6 +9,6 @@ class Vendor < ActiveRecord::Base
   validates :address, :presence => true, :uniqueness => true
 
   geocoded_by :address
-  after_validation :geocode  
+  acts_as_gmappable  
 
 end

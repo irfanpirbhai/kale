@@ -6,10 +6,11 @@ body {
   background-image: url('kale.jpg');
 }
 
-#map-canvas {
-  width: 500px;
-  height: 500px;
-}
+// #map-canvas {
+//   width: 500px;
+//   height: 400px;
+//   margin-bottom: 25px;
+// }
 
 .page_content {
   background: white;
@@ -17,6 +18,10 @@ body {
   opacity: 0.9;
 }
 
+.vendor-search-form {
+  padding-right: 15px;
+  display: inline;
+}
 
 #distance {
   width: 40px;

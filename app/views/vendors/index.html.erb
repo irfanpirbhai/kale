@@ -1,6 +1,9 @@
 <h2>Current Location: <%= @current_location %></h2>
 
 <h3>Nearby vendors:</h3>
+
+<%= gmaps4rails(@vendors)  %>
+
 <ul>
   <% @vendors.each do |vendor| %>
     <li>

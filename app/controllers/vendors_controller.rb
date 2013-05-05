@@ -9,6 +9,9 @@ class VendorsController < ApplicationController
     else
       @vendors = Vendor.all
     end
+
+    @vendors = @vendors.to_gmaps4rails
+
   end
 
 end

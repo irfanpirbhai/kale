@@ -1,20 +1,20 @@
-var map;
+// var map;
 
-function initializeMap() {
-  var mapOptions = {
-    center: new google.maps.LatLng(43.6667, -79.4167), 
-    zoom: 15,
-    zoomControl: true,
-    zoomControlOptions: {
-      style: google.maps.ZoomControlStyle.SMALL
-    },
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+// function initializeMap() {
+//   var mapOptions = {
+//     center: new google.maps.LatLng(43.6667, -79.4167), 
+//     zoom: 15,
+//     zoomControl: true,
+//     zoomControlOptions: {
+//       style: google.maps.ZoomControlStyle.SMALL
+//     },
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+//   };
   
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-  // map.addOverlay(new GMarker(43.6667, -79.418406));
+//   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+//   // map.addOverlay(new GMarker(43.6667, -79.418406));
 
-}
+// }
 
 
 // // setup 10 random points 
