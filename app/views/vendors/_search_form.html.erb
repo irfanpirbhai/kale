@@ -1,7 +1,7 @@
 <%= form_tag vendors_path, method: :get do %>
   <div class="vendor-search-form">  <%= label :location, "Find items near: " %>
     <%= text_field_tag :location, params[:location], :placeholder => "Enter address" %>  , 
-    <%= text_field_tag :distance, params[:distance], :class => "text field" %> km away
+    <%= text_field_tag :distance, params[:distance], :class => "text field", :value => 5 %> km away
   </div>
   <%= submit_tag "Search" %>
 <% end %>

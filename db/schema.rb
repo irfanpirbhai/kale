@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505155713) do
+ActiveRecord::Schema.define(:version => 20130505172944) do
 
   create_table "inventory_records", :force => true do |t|
     t.integer  "price_cents", :null => false
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20130505155713) do
     t.string   "phone",      :limit => 30
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
-    t.boolean  "gmaps"
   end
 
 end

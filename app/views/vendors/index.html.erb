@@ -2,14 +2,14 @@
 
 <h3>Nearby vendors:</h3>
 
-<%= gmaps4rails(@vendors)  %>
-
 <ul>
   <% @vendors.each do |vendor| %>
     <li>
       <%= vendor.name %>  |  
       <%= vendor.address %>  | 
-      <%= vendor.distance_from([43.6667, -79.4167]).round(1) %> km away
+      <%= vendor.distance_from(@inputted_location).round(1) %> km away
     </li>
   <% end %>
 </ul>
+
+<%= gmaps4rails(@markers)  %>

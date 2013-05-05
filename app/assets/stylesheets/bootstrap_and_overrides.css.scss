@@ -6,11 +6,12 @@ body {
   background-image: url('kale.jpg');
 }
 
-// #map-canvas {
-//   width: 500px;
-//   height: 400px;
-//   margin-bottom: 25px;
-// }
+#map img { 
+  max-width: none;
+}
+#map label { 
+  width: auto; display:inline; 
+}
 
 .page_content {
   background: white;

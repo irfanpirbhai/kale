@@ -9,6 +9,16 @@ class Vendor < ActiveRecord::Base
   validates :address, :presence => true, :uniqueness => true
 
   geocoded_by :address
-  acts_as_gmappable  
+  acts_as_gmappable
+
+   def gmaps4rails_infowindow
+      "<strong>#{self.name}</strong><br>
+      #{self.address}<br>
+      #{self.phone}"
+  end
+
+  def gmaps4rails_title
+    self.name
+  end
 
 end
