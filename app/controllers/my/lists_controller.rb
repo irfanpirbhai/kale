@@ -11,6 +11,17 @@ class My::ListsController < ApplicationController
     
     @current_location = request.location
     @user_ip = request.ip
+    
+    @inputted_location = Geocoder.coordinates(params[:location])
+
+    if params[:location].present?
+      @vendors = Vendor.near(params[:location], params[:distance], order: :distance)
+    else
+      @vendors = Vendor.all
+    end
+
+    @markers = @vendors.to_gmaps4rails
+    
   end
 
   def new

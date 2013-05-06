@@ -3,5 +3,5 @@
     <%= text_field_tag :location, params[:location], :placeholder => "Enter address" %>  , 
     <%= text_field_tag :distance, params[:distance], :class => "text field", :value => 5 %> km away
   </div>
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", :class => "vendor-search-form-submit" %>
 <% end %>

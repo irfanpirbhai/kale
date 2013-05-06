@@ -9,8 +9,17 @@ body {
 #map img { 
   max-width: none;
 }
+
 #map label { 
   width: auto; display:inline; 
+}
+
+div.map_container {
+  width: 97%;
+  .gmaps4rails_map{
+    width: 100%;
+    height: 400px;
+  }
 }
 
 .page_content {
@@ -22,6 +31,11 @@ body {
 .vendor-search-form {
   padding-right: 15px;
   display: inline;
+}
+
+.vendor-search-results {
+  // display: none;
+  width: 100%;
 }
 
 #distance {

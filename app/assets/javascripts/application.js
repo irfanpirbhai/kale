@@ -59,7 +59,36 @@ $(document).ready(function(){
       });
   }, 1000);
 
-  //Initialize Google Maps
-  // initializeMap();
+
+  var location = $(".vendor-search-form #location").val();
+  var distance = $(".vendor-search-form #distance").val();
+
+  $(".vendor-search-form #location").bind('keyup', function(){
+    location = $(this).val();
+  });
+
+  $(".vendor-search-form #distance").bind('keyup', function(){
+    distance = $(this).val();
+  });  
+
+  $(".vendor-search-form-submit").on("click", function(e){
+    e.preventDefault();
+    $.ajax({
+        url: "http://localhost:3000/vendors", 
+        type: "GET", 
+        dataType: "html", 
+        data: { location: location, distance: distance }, 
+        success: function(data) {
+          console.log("Map request was made.");
+          var dom = $(data);
+          var footer = ($(data)[55]);
+          console.log(footer);
+          // var searchResults = $(dom[39]).find(".vendor-search-results")[0];
+          var searchResults = ($(data)[53].childNodes[3].childNodes[1]);
+          $(".vendor-search").append(searchResults);
+          $("footer").replaceWith(footer);
+        }
+    })
+  })  
 
 })

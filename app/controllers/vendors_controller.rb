@@ -1,8 +1,9 @@
 class VendorsController < ApplicationController
   
   def index
-    @current_location = request.location.try(:city)
     @user_ip = request.ip
+    
+    @current_location = request.location
     @inputted_location = Geocoder.coordinates(params[:location])
 
     if params[:location].present?
@@ -12,7 +13,7 @@ class VendorsController < ApplicationController
     end
 
     @markers = @vendors.to_gmaps4rails
-
+    
   end
 
 end
