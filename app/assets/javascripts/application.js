@@ -64,43 +64,32 @@ $(document).ready(function(){
 
   $(".vendor-search-form #location").change(function(){
     location = $(this).val();
-    // locationParsed = location.split(" ").join("+");
-    // console.log(locationParsed)
   });
 
   $(".vendor-search-form #distance").change(function(){
     distance = $(this).val();
   });  
 
-  $(".vendor-search-form-submit").on("click", function(e){
-    e.preventDefault();
-    // $.ajax({
-    //     url: "http://localhost:3000/vendors", 
-    //     type: "GET", 
-    //     dataType: "html", 
-    //     data: { location: location, distance: distance }, 
-    //     success: function(data) {
-    //       console.log("Map request was made.");
-    //       var dom = $.parseHTML(data);
-    //       var searchResults = $(dom[33]).find(".vendor-search-results")[0];
-    //       $(".vendor-search-results").replaceWith(searchResults);
-    //     }
-    // })
-
-  $.ajax({
-    url: "http://localhost:3000/vendors", 
-    type: "GET", 
-    dataType: "json", 
-    data: { location: location, distance: distance }, 
-    success: function(data) {
-      console.log("Map request was made.");
-      vendorSearchResults = data;
-      //Initialize Google Maps
-      if ($("#map-canvas").length > 0) {
-        initializeMap();
+  var loadSearchResults = function(){
+    $.ajax({
+      url: "http://localhost:3000/vendors", 
+      type: "GET", 
+      dataType: "json", 
+      data: { location: location, distance: distance }, 
+      success: function(data) {
+        console.log("Map request was made.");
+        vendorSearchResults = data;
+        //Initialize Google Maps
+        if ($("#map-canvas").length > 0) {
+          initializeMap();
         }
       }
     })
-  })  
+  }
+
+  $(".vendor-search-form-submit").on("click", function(e){
+    e.preventDefault();
+    loadSearchResults();
+  })
 
 })

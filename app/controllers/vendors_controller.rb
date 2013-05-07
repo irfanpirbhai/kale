@@ -2,9 +2,10 @@ class VendorsController < ApplicationController
   
   def index
     @user_ip = request.ip
-    @inputted_location = Geocoder.coordinates(params[:location])
     @current_location = request.location
-  
+    
+    @inputted_location = Geocoder.coordinates(params[:location])
+
     if params[:location].present?
       @vendors = Vendor.near(params[:location], params[:distance], order: :distance)
     else

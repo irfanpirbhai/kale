@@ -27,13 +27,8 @@ function initializeMap() {
 }
 
 function addMarkers() {  
-  console.log("addMarkers!");
 
-  function createMarker(map, position, name, address, phone, url){
-    console.log("createMarker!");
-    console.log(vendorLatLng);
-    console.log(name);
-    console.log(address);
+  function createMarker(map, position, name, address, phone, url, distance){
     
     var marker = new google.maps.Marker({
       position: vendorLatLng,
@@ -44,7 +39,7 @@ function addMarkers() {
 
     google.maps.event.addListener(marker, 'click', function() {
       var contentString = "<div class='infoWindow-content'>"+
-                          "<b>"+name+"</b>"+"<br>"+
+                          "<b>"+name+"</b>"+"  ("+distance+" km away)"+"<br>"+
                           address+"<br>"+
                           phone+"<br>"+
                           "<a href=\""+url+"\">"+url+"</a>"+"<br>"+
@@ -61,9 +56,11 @@ function addMarkers() {
     var address = vendorSearchResults[i].address;
     var phone = vendorSearchResults[i].phone;
     var url = vendorSearchResults[i].url;
+    var distance = vendorSearchResults[i].distance;
+    console.log(distance);
 
     var vendorLatLng = new google.maps.LatLng(lat,lng);
 
-    createMarker(map, vendorLatLng, name, address, phone, url);
+    createMarker(map, vendorLatLng, name, address, phone, url, distance);
   }
 }
