@@ -13,7 +13,8 @@ InventoryRecord.destroy_all
 vendors = [
   Vendor.create!(name: "Karma Coop", 
                  address: "39 Palmerston Ave, Toronto ON, M6G 2R3", 
-                 phone: "(416) 534-1470"),
+                 phone: "(416) 534-1470",
+                 url: "www.karmacoop.org"),
 
   Vendor.create!(name: "Herbs & Nutrition", 
                  address: "572 Bloor St W, Toronto ON, M6G 1K1", 
@@ -21,7 +22,8 @@ vendors = [
 
   Vendor.create!(name: "Fiesta Farms", 
                  address: "200 Christie St, Toronto, M6G 3B6", 
-                 phone: "(416) 537-1235")
+                 phone: "(416) 537-1235",
+                 url: "www.fiestafarms.ca"),
 ]
 
 item_names = [

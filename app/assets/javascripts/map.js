@@ -1,9 +1,14 @@
 var map;
+var mapOptions;
+var infoWindow;
+var markers = [];
+var myLatlng;
 
 function initializeMap() {
-  var myLatlng = new google.maps.LatLng(43.6667,-79.4168);
   
-  var mapOptions = {
+  myLatlng = new google.maps.LatLng(43.6667,-79.4168);
+  
+  mapOptions = {
     center: myLatlng, 
     zoom: 15,
     zoomControl: true,
@@ -13,42 +18,52 @@ function initializeMap() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      animation: google.maps.Animation.DROP,
-      map: map,
-      title: 'Karma Coop'
-      });
+  infoWindow = new google.maps.InfoWindow();
 
-  var contentString = "<div class='infoWindow-content'>"+
-                      "<b>"+"Karma Coop"+"</b>"+"<br>"+
-                      "39 Palmerston Ave, Toronto ON, M6G 2R3"+"<br>"+
-                      "(416) 534-1470"+"<br>"+
-                      "<a href='www.karmacoop.org'>www.karmacoop.org</a>"+"<br>"+
-                      "</div>";
-
-  var infowindow = new google.maps.InfoWindow({
-      content: contentString
-  });
-
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-  });
-
+  google.maps.event.addListenerOnce(map, 'tilesloaded', addMarkers);
+  
 }
 
-// // setup 10 random points 
-// var bounds = map.getBounds(); 
-// var southWest = bounds.getSouthWest(); 
-// var northEast = bounds.getNorthEast(); 
-// var lngSpan = northEast.lng() – southWest.lng(); 
-// var latSpan = northEast.lat() – southWest.lat(); 
-// var markers = []; 
-// for (var i = 0; i<10; i++) { 
-//   var point = new GLatLng(southWest.lat() + latSpan * Math.random(), southWest.lng() + lngSpan * Math.random()); 
-//   marker = new GMarker(point); 
-//   map.addOverlay(marker); 
-//   markers[i] = marker; 
-// }
+function addMarkers() {  
+  console.log("addMarkers!");
+
+  function createMarker(map, position, name, address, phone, url){
+    console.log("createMarker!");
+    console.log(vendorLatLng);
+    console.log(name);
+    console.log(address);
+    
+    var marker = new google.maps.Marker({
+      position: vendorLatLng,
+      animation: google.maps.Animation.DROP,
+      map: map,
+      title: name
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      var contentString = "<div class='infoWindow-content'>"+
+                          "<b>"+name+"</b>"+"<br>"+
+                          address+"<br>"+
+                          phone+"<br>"+
+                          "<a href=\""+url+"\">"+url+"</a>"+"<br>"+
+                          "</div>";
+      infoWindow.setContent(contentString);
+      infoWindow.open(map, marker);
+    });
+  }
+
+  for (var i = 0; i < vendorSearchResults.length; i++){
+    var lat = vendorSearchResults[i].latitude;
+    var lng = vendorSearchResults[i].longitude;
+    var name = vendorSearchResults[i].name;
+    var address = vendorSearchResults[i].address;
+    var phone = vendorSearchResults[i].phone;
+    var url = vendorSearchResults[i].url;
+
+    var vendorLatLng = new google.maps.LatLng(lat,lng);
+
+    createMarker(map, vendorLatLng, name, address, phone, url);
+  }
+}
