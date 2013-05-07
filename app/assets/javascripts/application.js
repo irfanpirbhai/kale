@@ -60,12 +60,42 @@ $(document).ready(function(){
   }, 1000);
 
   //Initialize Google Maps
-  initializeMap();
+  if ($("#map-canvas").length > 0) {
+    initializeMap();
+  }
 
-  var pathname = window.location.pathname;
+  // var pathname = window.location.pathname;
 
-  $.getJSON(window.location.pathname, function(data) {
-    console.log(data);
+  // $.getJSON(window.location.pathname, function(data) {
+  //   console.log(data);
+  // });
+
+  var location = $(".vendor-search-form #location").val();
+  var distance = $(".vendor-search-form #distance").val();
+
+  $(".vendor-search-form #location").change(function(){
+    location = $(this).val();
   });
+
+  $(".vendor-search-form #distance").change(function(){
+    distance = $(this).val();
+  });  
+
+  $(".vendor-search-form-submit").on("click", function(e){
+    e.preventDefault();
+    $.ajax({
+        url: "http://localhost:3000/vendors", 
+        type: "GET", 
+        dataType: "html", 
+        data: { location: location, distance: distance }, 
+        success: function(data) {
+          console.log("Map request was made.");
+          var dom = $.parseHTML(data);
+          console.log(dom);
+          var searchResults = $(dom[33]).find(".vendor-search-results")[0];
+          $(".vendor-search-results").replaceWith(searchResults);
+        }
+    })
+  })  
 
 })

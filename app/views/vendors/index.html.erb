@@ -1,15 +1,24 @@
-<h2>Current Location: <%= @current_location %></h2>
+<div class="vendor-search-results">
 
-<h3>Nearby vendors:</h3>
-<ul>
-  <% @vendors.each do |vendor| %>
-    <li>
-      <%= vendor.name %>  |  
-      <%= vendor.address %>  | 
-      <%= vendor.distance_from([43.6667, -79.4167]).round(1) %> km away
-    </li>
-  <% end %>
-</ul>
+  <h3>Nearby vendors:</h3>
 
-<div id="map-canvas">
+  <ul>
+    <% @vendors.each do |vendor| %>
+      <li>
+        <%= vendor.name %>  |  
+        <%= vendor.address %>  | 
+        <%= vendor.distance_from(@inputted_location).round(1) %> km away
+      </li>
+    <% end %>
+  </ul>
+
+<h2>Current Location:</h2>
+  Current location: <%= @current_location %><br>
+  @current_location.coordinates: <%= @current_location.coordinates %><br>
+  Geocoder.coordinates(@current_location): <%= Geocoder.coordinates(@current_location) %>
+
+</div>
+
+<div class="map-container">
+    <div id="map-canvas"></div>
 </div>

@@ -16,7 +16,6 @@ function initializeMap() {
 
 }
 
-
 // // setup 10 random points 
 // var bounds = map.getBounds(); 
 // var southWest = bounds.getSouthWest(); 

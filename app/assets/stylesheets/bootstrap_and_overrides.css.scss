@@ -6,20 +6,34 @@ body {
   background-image: url('kale.jpg');
 }
 
-#distance {
-  width: 40px;
-}
-
 #map-canvas {
   width: 500px;
   height: 400px;
   margin-bottom: 25px;
+  
+  img {
+    max-width: none;
+  }
+  
+  label { 
+    width: auto; 
+    display:inline; 
+  }
+}
+
+.vendor-search-form {
+  padding-right: 15px;
+  display: inline;
 }
 
 .page_content {
   background: white;
   padding: 10px;
   opacity: 0.9;
+}
+
+#distance {
+  width: 40px;
 }
 
 .list_all {

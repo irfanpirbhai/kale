@@ -12,6 +12,8 @@ gem 'money-rails'
 gem 'rails3-jquery-autocomplete'
 gem 'sorcery'
 gem 'thin'
+gem 'rabl'
+gem 'oj'
 
 # Gems used only for assets and not required
 # in production environments by default.

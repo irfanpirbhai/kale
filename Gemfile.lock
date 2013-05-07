@@ -121,6 +121,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    oj (2.0.12)
     pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12)
@@ -129,6 +130,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.2.2)
       pry (>= 0.9.10)
+    rabl (0.8.4)
+      activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -206,8 +209,10 @@ DEPENDENCIES
   guard-test
   jquery-rails
   money-rails
+  oj
   pg
   pry-rails
+  rabl
   rails (= 3.2.11)
   rails3-jquery-autocomplete
   rb-fsevent
