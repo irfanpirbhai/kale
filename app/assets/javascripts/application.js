@@ -63,7 +63,7 @@ $(document).ready(function(){
   if ($("#map-canvas").length > 0) {
     initializeMap();
   }
-
+  
   // var pathname = window.location.pathname;
 
   // $.getJSON(window.location.pathname, function(data) {
