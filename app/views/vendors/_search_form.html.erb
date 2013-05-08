@@ -1,5 +1,8 @@
 <%= form_tag vendors_path, :method => :get, :class => "vendor-search-form"  do %>
   <%= label :location, "Find items near: " %>
+  <%= link_to "#", :class => "list-icon", title: "Current Location" do %>
+    <i class="icon-screenshot geolocate"></i>
+  <% end %>
   <%= text_field_tag :location, params[:location], :placeholder => "Enter address" %>  , 
   <%= text_field_tag :distance, params[:distance], :class => "text field", :value => 5 %> km away
   <%= submit_tag "Search", :class => "vendor-search-form-submit" %>

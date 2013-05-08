@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require geolocationmarker.js
+//= require markerwithlabel.js
 
 $(document).ready(function(){
 
@@ -53,12 +55,14 @@ $(document).ready(function(){
 
   });
 
+  // Error messages
   window.setTimeout(function() {
       $(".alert").fadeTo(500, 0).slideUp(500, function(){
           $(this).remove(); 
       });
   }, 1000);
 
+  // Map load
   var location = $(".vendor-search-form #location").val();
   var distance = $(".vendor-search-form #distance").val();
 
@@ -79,7 +83,7 @@ $(document).ready(function(){
       success: function(data) {
         console.log("Map request was made.");
         vendorSearchResults = data;
-        //Initialize Google Maps
+        // Initialize Google Maps
         if ($("#map-canvas").length > 0) {
           initializeMap();
         }
@@ -91,5 +95,26 @@ $(document).ready(function(){
     e.preventDefault();
     loadSearchResults();
   })
+
+  // Geolocation
+
+  var geolocate = function(e) {
+    e.preventDefault();
+    console.log("click");
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(writePosition);
+    }
+    else{console.log("Geolocation is not supported by this browser.");}
+  };
+
+  var writePosition = function(position){
+    inputLat = position.coords.latitude;
+    inputLng = position.coords.longitude;
+    location = inputLat + ", " + inputLng;
+    loadSearchResults();
+    $(".vendor-search-form #location").val(location);
+  };
+    
+  $("i.geolocate").click(geolocate);
 
 })

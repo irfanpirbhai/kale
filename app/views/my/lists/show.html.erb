@@ -3,9 +3,9 @@
   <div class="span6">
     <h1>Current list:</h1>
     <p>
-      <%= link_to "Select cheapest", update_many_my_list_path(:update_value => "cheapest"), :method => :put %>  | 
+      <%= link_to "Select cheapest", update_many_my_list_path(:update_value => "cheapest"), :method => :put, :class => "link-cheapest"%>  | 
       <%= link_to "Select closest", "#" %> | 
-      <%= link_to "Forget my selections", update_many_my_list_path(:update_value => "forget"), :method => :put %>    
+      <%= link_to "Forget my selections", update_many_my_list_path(:update_value => "forget"), :method => :put, :class => "link-forget" %>    
     </p>
 
     <ul>
@@ -20,7 +20,8 @@
           </a>      
           <%= list_item.item.name %>
 
-          <%= link_to "/my/list/list_items/#{list_item.id}", :confirm => 'Are you sure?', :method => :delete, :class => "list-icon" do %>
+          <%= link_to "/my/list/list_items/#{list_item.id}", :confirm => 'Are you sure?', 
+              :method => :delete, :class => "list-icon" do %>
             <i class="icon-remove-sign"></i>
           <% end %>
 

@@ -21,6 +21,18 @@ body {
   }
 }
 
+.labels {
+   color: green;
+   background-color: white;
+   font-family: "Lucida Grande", "Arial", sans-serif;
+   font-size: 10px;
+   font-weight: bold;
+   text-align: center;
+   width: 40px;     
+   border: 1px solid black;
+   white-space: nowrap;
+ }
+
 .vendor-search-form {
   padding-right: 15px;
   display: inline;
@@ -54,6 +66,14 @@ i {
 
 .hideprices:hover {
   color: black;
+}
+
+.geolocate {
+  font-size: 1.75em;
+}
+
+.icon-screenshot:hover {
+  color: black; 
 }
 
 .icon-remove-sign:hover {
